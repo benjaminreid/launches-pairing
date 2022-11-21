@@ -14,7 +14,11 @@ function LaunchList() {
   );
 
   if (isError) {
-    return <Error>Oops, we couldn’t load launch list</Error>;
+    return (
+      <div data-testid="error">
+        <Error>Oops, we couldn’t load launch list</Error>;
+      </div>
+    );
   }
 
   if (isLoading) {
