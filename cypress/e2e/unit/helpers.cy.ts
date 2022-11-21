@@ -10,13 +10,13 @@ describe('Helpers', () => {
 
   context('get', () => {
     it('gets data from an API', () => {
-      cy.intercept('GET', 'http://example.com/json', {
+      cy.intercept('GET', 'https://jsonplaceholder.typicode.com/todos/1', {
         body: {
           foo: 'bar',
         },
       }).as('example');
 
-      get('http://example.com/json')();
+      get('https://jsonplaceholder.typicode.com/todos/1')();
 
       cy.wait('@example').then((interception) => {
         expect(interception.response.body).to.deep.eq({ foo: 'bar' });
