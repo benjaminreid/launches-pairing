@@ -17,8 +17,10 @@ function Launch({ launch }: Props) {
 
       <div className={styles.header}>
         <div>
-          <h2 className={styles.heading}>{launch.mission_name}</h2>
-          <time className={styles.date} dateTime={launch.launch_date_utc}>
+          <h2 className={styles.heading} data-testid="title">
+            {launch.mission_name}
+          </h2>
+          <time className={styles.date} dateTime={launch.launch_date_utc} data-testid="date">
             {formatDate(launch.launch_date_utc)}
           </time>
         </div>
@@ -35,18 +37,20 @@ function Launch({ launch }: Props) {
       <div className={styles.spaceX}>
         <div className={styles.cell}>
           <h3 className={styles.subheading}>Core</h3>
-          <p>{launch.rocket.first_stage.cores[0].core_serial}</p>
+          <p data-testid="core">{launch.rocket.first_stage.cores[0].core_serial}</p>
         </div>
 
         <div className={styles.cell}>
           <h3 className={styles.subheading}>Payloads</h3>
-          {launch.rocket.second_stage.payloads.map((payload) => (
-            <div key={payload.payload_id}>
-              <p>
-                {payload.payload_type}: {payload.payload_id}
-              </p>
-            </div>
-          ))}
+          <div data-testid="payload">
+            {launch.rocket.second_stage.payloads.map((payload) => (
+              <div key={payload.payload_id}>
+                <p>
+                  {payload.payload_type}: {payload.payload_id}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

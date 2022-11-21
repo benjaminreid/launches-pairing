@@ -19,7 +19,7 @@ function LaunchList() {
 
   if (isLoading) {
     return (
-      <div className={styles.grid}>
+      <div className={styles.grid} data-testid="loading">
         {placeholders.map((placeholder) => (
           <Placeholder key={placeholder} />
         ))}
@@ -31,7 +31,7 @@ function LaunchList() {
 
   return (
     <>
-      <div className={styles.grid}>
+      <div className={styles.grid} data-testid="launches">
         {launches.map((launch) => (
           <Launch key={`${launch.flight_number}-${launch.mission_name}`} launch={launch} />
         ))}
