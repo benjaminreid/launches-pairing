@@ -3,4 +3,7 @@ module.exports = {
   images: {
     domains: ['images2.imgbox.com'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
